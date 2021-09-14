@@ -6,15 +6,15 @@ class Piece:
         self.i = i
         self.j = j
 
-    def getSymbol():
+    def getSymbol(self):
         return self.symbol
 
-    def getColour():
+    def getColour(self):
         return self.colour
 
-    def getCoords():
+    def getCoords(self):
         return (self.i, self.j)
 
-    def updateCoords(i, j):
+    def updateCoords(self,i, j):
         self.i = i
         self.j = j
