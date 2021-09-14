@@ -1,9 +1,8 @@
 from BasePiece import Piece
 
 class Bishop(Piece):
-    def __init__(self, colour, i, j):
+    def __init__(self, colour):
         if colour == 0:
-            Piece.__init__(self, "♗", 0, i, j)
+            Piece.__init__(self, "♗", 0)
         else:
-            Piece.__init__(self, "♝", 1, i, j)
-        print("Bishop piece")
+            Piece.__init__(self, "♝", 1)
