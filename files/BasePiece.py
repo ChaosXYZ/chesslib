@@ -1,6 +1,7 @@
 class Piece:
 
     def __init__(self, symbol, colour, i, j):
+        print("Piece - for testing")
         self.symbol = symbol
         self.colour = colour
         self.i = i
