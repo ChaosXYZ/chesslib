@@ -5,6 +5,8 @@ from BishopP import Bishop
 from RookP import Rook 
 from PawnP import Pawn
 
+
+
 piecedict = {
     "k":King(1),
     "q":Queen(1),

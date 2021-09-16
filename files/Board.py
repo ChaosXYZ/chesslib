@@ -3,7 +3,7 @@ from Pieces import *
 
 class Board:
 
-    def __init__(self, FEN = "#"):
+    def __init__(self, FEN = None):
         self.turn = 0
         self.movenum = 0
         self.board = []
@@ -17,8 +17,12 @@ class Board:
             for j in range(8):
                 row.append(Tile(i,j))
             self.board.append(row)
+            
         if FEN == None:
             self.initialize()
+        else:
+            self.importFEN(FEN)
+
 
 
     def initialize(self):
@@ -68,12 +72,13 @@ class Board:
 
     def importFEN(self, FEN):
         #'rnbqkbnr/pp1ppppp//8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1'
-        fen = 'rnbqkbnr/pp1ppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1'.split(' ')
+        fen = FEN.split(' ')
         self.enpassant = fen[3]
         self.turn = 1 if fen[1] == "b" else 0
         self.movenum = fen[5]
 
         #Castling array
+        self.castling = [False, False, False, False]
         for i in fen[2]:
             if i == "K":
                 self.castling[0] = True
@@ -96,6 +101,3 @@ class Board:
                     self.board[i][point].setPiece(piecedict[j])
                     point += 1
                 
-g = Board()
-g.importFEN('f')
-g.display()
