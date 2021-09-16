@@ -3,7 +3,7 @@ from Pieces import *
 
 class Board:
 
-    def __init__(self, FEN = None):
+    def __init__(self, FEN = "#"):
         self.turn = 0
         self.movenum = 0
         self.board = []
@@ -47,11 +47,14 @@ class Board:
             self.board[6][i].setPiece(Pawn(0))
 
     def display(self):
+        print("  ----------------------".strip("\n"))
         for i in range(8):
             print("{a} ".format(a=8-i), end="|")
             for j in range(8):
                 print(self.board[i][j],end="|")
-            print("\n")
+            print("".strip())
+            print("  ----------------------")
+        print("    a  b  c  d  e  f  g  h")
 
     def FENstats(self):
         cols = ["White","Black"]
@@ -85,8 +88,14 @@ class Board:
         boardconfig = fen[0].split("/")
         for i in range(8):
             numbers = ["1", "2", "3", "4", "5", "6", "7", "8"]
-            j = 0
-            while j != 8:
-                if boardconfig[i][j] in num:
-                    j += int(boardconfig[i][j])
+            point = 0
+            for j in boardconfig[i]:
+                if j in numbers:
+                    point += int(j)
+                else:
+                    self.board[i][point].setPiece(piecedict[j])
+                    point += 1
                 
+g = Board()
+g.importFEN('f')
+g.display()

@@ -26,7 +26,7 @@ class Tile:
     def __str__(self):
         if self.piece != None:
             return self.piece.getSymbol()
-        return "  "
+        return " "
     
     def __repr__(self):
         if self.piece != None:
