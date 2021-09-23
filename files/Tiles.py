@@ -15,7 +15,7 @@ class Tile:
         return False
     
     def getPiece(self):
-        return piece
+        return self.piece
        
     def setPiece(self, piece):
         self.piece = piece

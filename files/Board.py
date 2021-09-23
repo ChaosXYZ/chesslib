@@ -100,4 +100,12 @@ class Board:
                 else:
                     self.board[i][point].setPiece(piecedict[j])
                     point += 1
-                
+
+    def exportFEN(self):
+        pass
+
+
+    def movePiece(self, tilefrom, tileto):
+        temp = tilefrom.getPiece()
+        tilefrom.removePiece()
+        tileto.setPiece(temp)
